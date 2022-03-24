@@ -24,6 +24,16 @@ void printingNode( Node * head){
 		temp=temp->next;
 	}
 }
+void PRINTINGREVERSE(Node * head){
+
+if(head==NULL)
+return;
+	
+	PRINTINGREVERSE(head->next);
+	
+		cout<<head->data<<" ";
+
+}
 
 void InsertInBetweenAFTER (Node * head , int data, int position){
 	Node * newNode = new Node();
@@ -132,6 +142,7 @@ creation(&head,7);
 creation(&head,8);
 creation(&head,2);
 creation(&head,1);
+
 //PRINTING ORIGINAL LL  " LL = lINKED LIST"
 cout<<"Original Linked List \n";
 printingNode(head);
@@ -171,6 +182,10 @@ deletenodeatend(head);
 cout<<"\n";
 cout<<"Delete 11 Node at end \n";
 printingNode(head);
+
+//PRINTNG REVERSE
+cout<<"\n";
+cout<<"Print in Reverse \n";
+PRINTINGREVERSE(head);
 return 0;
 }
-
