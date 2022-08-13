@@ -6,14 +6,25 @@ struct Node{
 	 Node* next;
 };		
 
- Node * creation( Node ** head,int data){
-	
-	 Node * Newnode = new Node();
-	Newnode->data=data;
-	Newnode->next=*head;
-	*head=Newnode;
+ Node *creation(int data){
+    Node *newnode = new Node();
+    newnode->data=data;
+    newnode->next=NULL;
+    
+    return newnode;
+    
+}
 
-	return Newnode;
+Node* insert(Node *head, int data ){
+    if(head==NULL)
+    head = creation (data);
+    
+    else {
+head->next = insert(head->next,data);
+        
+    }
+    
+    return head;
 }
 
 void printingNode( Node * head){
@@ -134,14 +145,14 @@ void deletenodeatend(Node *head){
 }
 
 int main()
-{  Node* head = NULL;
+{ 
+	
+Node* head = NULL;
 
-creation(&head,5);
-creation(&head,6);
-creation(&head,7);
-creation(&head,8);
-creation(&head,2);
-creation(&head,1);
+int a[]={213,21,3,3142,344,464,2,23,56};
+
+for(auto i:a)
+head=insert(head,i);
 
 //PRINTING ORIGINAL LL  " LL = lINKED LIST"
 cout<<"Original Linked List \n";
